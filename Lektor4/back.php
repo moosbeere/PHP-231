@@ -17,7 +17,7 @@
                     print_r(get_headers('http://localhost/student-231/Lektor4/'));
                 ?>
             </textarea>
-            <a href="index.html">get_headers</a>
+            <a href="index.html">Back</a>
 
         </div>
      </main> 
