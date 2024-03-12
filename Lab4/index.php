@@ -1,102 +1,53 @@
 <?php
 
-$str = 'Ivanov Ivan Ivanovich';
-// echo "$str<br>";
+    preg_match_all('/x(a+)x/', 'xx xax xaax xaaax baab', $matches);
+    // print_r($matches);
 
-preg_match('/([A-Z][a-z]*) ([A-Z])[a-z]* ([A-Z])[a-z]*/', $str, $matches);
-// var_dump($matches);
-
-// echo $matches[1].' '.$matches[2].'.'.$matches[3].'.';
-
-// echo str_replace('a', '!', 'aabbaa');
-// echo '<br>';
-// echo preg_replace('/a/', '!', 'aabbaa');
-// echo '<br>';
-
-// echo str_replace('A', '!', 'aAbbAa');
-// echo '<br>';
-// echo preg_replace('/A/i', '!', 'aAbbAa');
-// echo '<br>';
-
-// echo preg_replace('/xax/', '!', 'xax xaax');
-// echo preg_replace('/123/', '!', '123 xaax');
-// echo preg_replace('/x3x/', '!', 'x3x xaax');
-
-// echo preg_replace('/A3B/', '!', 'a3b A3B');
-
-// echo preg_replace('/x.x/', '!', 'xax xsx x&x x-x xaax');
-// echo preg_replace('/x..x/', '!', 'xax xsx x&x x-x xaax');
-
-// echo preg_replace('/xa+x/', '!', 'xx xax xaax xaaax xbx');
-// echo 'xx xax xaax xaaax xbx<br>';
-// echo preg_replace('/(xa)*x/', '!', 'xx xax xaax xaaax xbx');
-
-// echo preg_replace('/xa?x/', '!', 'xx xax xaax xbx');
+    preg_match_all('/([a-z]+)\.([a-z]{2,3})/', 'domain.ru hello.by mail.com', $matches);
+    // print_r($matches);
+    // echo '<br>';
+    // echo $matches[1][0];
+    // echo '<br>';
+    // foreach($matches[1] as $matches){
+    //     echo $matches.'<br>';
+    // }
 
 
-// echo preg_replace('/a\+x/', '!', 'a+x ax aax aaaax');
-// echo preg_replace('/a\.x/', '!', 'a.x ax aax aaaax');
+    // echo preg_replace('/(a+)@(b+)/', '$2@$1', 'a@b aa@bb');
 
-// echo preg_replace('/a.+?x/', '!', 'a23e4x qw x e');
+    // echo preg_replace('/[a-z]+/', '!$0!', 'aaa bbb');// !aaa! !bbb!
 
-// echo preg_replace('/xa{1,2}x/', '!', 'xx xax xaax xaaax');
-// echo preg_replace('/xa{2,}x/', '!', 'xx xax xaax xaaax');
-// echo preg_replace('/xa{2}x/', '!', 'xx xax xaax xaaax');
-// echo preg_replace('/xa{,2}x/', '!', 'xx xax xaax xaaax');//ошибка
-// echo '1 11 123 abc @@@<br>';
-// echo preg_replace('/\d+/', '!', '1 11 123 abc @@@');
+    // echo preg_replace('/([a-z])(<\/\2>)/', '!', 'aaebbc');
 
-// echo '123 abc 3@@<br>';
-// echo preg_replace('/\D/', '!', '123 abc 3@@');
+    // echo preg_replace('/(ab)+([a-z])/' ,'!$1!','ababx abe');
 
-// echo '1 12 123 abc @@@<br>';
-// echo preg_replace('/\s/', '!', '1 12 123 abc @@@');
+    // echo preg_replace('/([a-z]+):(\d+)/','$2:$1','aaa:444 kkk:333');
 
-// echo '1 12 123 abc @@@<br>';
-// echo preg_replace('/\S+/', '!', '1 12 123 abc @@@');
+    // echo preg_replace('/(\d)\1/','!','332 441 550');
 
-// echo '1 12 123a Abc @@@<br>';
-// echo preg_replace('/\W+/', '!', '1 12 123a Abc @@@');
-
-// echo '1 12 123a Abc @@@<br>';
-// echo preg_replace('/\w+/', '!', '1 12 123a Abc @@@');
-
-// echo preg_replace('/[abc^]xx/', '!', 'axx bxx cxx exx');
-// echo preg_replace('/[^abc]xx/', '!', 'axx bxx cxx exx');
-
-// [A-Za-z0-9] [2-5] [a-c]
-
-// [:\-@] :;<>=?@
-
-// echo preg_replace('/[\da-z]xx/', '!', '3xx axx Axx');
-// echo preg_replace('/[а-яА-ЯёЁ]яя/u', '!', 'аяя ёяя 2яя');
-
-// echo preg_replace('/^aaa$/', '!', 'aaa aaa aaa');
-// echo preg_replace('/^aaa/', '!', 'aaa aaa aaa');
-// echo preg_replace('/aaa$/', '!', 'aaa aaa aaa');
-
-// echo preg_replace('/a|b+|c/', '!', 'bbbbb');
-// echo preg_replace('/(a|b+)xx/', '!', 'axx bxx bbxx exx');
-
-// echo preg_replace('/\b[a-z]+\b/', '!', 'axx bxx xxx exx');
-
-$var = 'д\'Артаньян';
-// echo preg_replace('/д\'[А][а-я]{7}/u', '!', $var);
-// echo '\\ \\ \\\\<br>';
-// echo preg_replace('/\\\/', '!', '\\ \\ \\\\');
+    // echo preg_replace('/(?<=x)aaa/','!','xaaa baaa');
+    // echo preg_replace('/(?<!x)aaa/','!','xaaa baaa');
 
 
-// echo preg_replace('/a+/', '!', 'a aa aaa aaaa', 2);
+    // echo preg_replace('/aaa(?=x)/', '!', 'aaax aaab');
+    // echo preg_replace('/aaa(?!x)/', '!', 'aaax aaab');
 
-// echo preg_match('/^[a-zA-Z-.]+@[a-z]+\.[a-z]{2,3}$/', 'my-mail@mail.ru');
-//  echo preg_match_all('/a+/', 'eee aaa bbb aa');
+    // echo preg_replace_callback('/(\d)\+(\d)=/', 'sum', '2+3=');
 
+    function sum($matches){
+        $result = $matches[0].($matches[1]+$matches[2]);
+        return $result;
+    }
 
+    // echo preg_replace('&.+? #любой символ один или более раз a # потом буква a &x', '!', 'строка');
 
+    // echo preg_replace('/(?<=z)yy/', '!', 'zyy ayy');
 
+    echo preg_replace_callback('/\d/', 'cube', 'a1b2c3');
 
-
-
-
+    function cube($matches){
+        $result = pow($matches[0], 3);
+        return $result;
+    }
 
 
