@@ -78,7 +78,7 @@ preg_match_all('/([a-z]+)\.([a-z]{2,3})/', 'domain.ru site.com hello.by', $match
 // echo '<br>';
 // print $matches[1][0];
 
-()
+
 
 
 
