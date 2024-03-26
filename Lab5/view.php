@@ -3,14 +3,9 @@
     $count = mysqli_fetch_row($res);
     $count_read = 5;
     $pages = ceil($count[0]/$count_read);
-
-    if (!isset($_GET['page'])) $_GET['page'] = 0;
     $page = $_GET['page']*$count_read;
- 
-    if (isset($_GET['o'])){
-        $sql = "SELECT * FROM `friends` ORDER BY ".$_GET['o'];
-    }else $sql = 'SELECT * FROM `friends`'.'LIMIT '.$page.','.$count_read;
-    // print_r($sql);
+
+    $sql = 'SELECT * FROM `friends` ORDER BY '.$_GET['o'].' LIMIT '.$page.','.$count_read;
     $res = mysqli_query($connect, $sql);
     
     if (mysqli_errno($connect)) print_r(mysqli_error($connect));
@@ -51,7 +46,7 @@
 <nav aria-label="Page navigation example">
   <ul class="pagination">
     <?php for($i=0; $i<$pages; $i++):?>
-        <li class="page-item"><a class="page-link" href="<?=$_SERVER['REQUEST_URI'];?>?page=<?=$i;?>"><?=$i+1;?></a></li>
+        <li class="page-item <?php if($_GET['page'] == $i) echo 'active';?>"><a class="page-link" href="<?=$_SERVER['SCRIPT_NAME'];?>?page=<?=$i;?>"><?=$i+1;?></a></li>
     <?php endfor;?>
   </ul>
 </nav>

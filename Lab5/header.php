@@ -32,11 +32,18 @@
 </nav>
     </header>
     <main>
+    <?php if(isset($s)):?>
+      <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading"></h4>
+        <p><?=$s;?></p>
+        <p class="mb-0"></p>
+      </div>
+    <?php endif;?>
         <?php if ($_GET['p'] == 'view'):?>
         <div class="btn-group" role="group" aria-label="Basic example">
-            <a href="?p=view&o=id" class="btn btn-secondary">Id</a>
-            <a href="?p=view&o=date" class="btn btn-secondary">Date</a>
-            <a href="?p=view&o=lastname" class="btn btn-secondary">Lastname</a>
+            <a href="?o=id&page=<?=$_GET['page'];?>" class="btn btn-secondary <?php if($_GET['o'] == 'id') echo 'active';?>">Id</a>
+            <a href="?o=date&page=<?=$_GET['page'];?>" class="btn btn-secondary <?php if($_GET['o'] == 'date') echo 'active';?>">Date</a>
+            <a href="?o=lastname&page=<?=$_GET['page'];?>" class="btn btn-secondary <?php if($_GET['o'] == 'lastname') echo 'active';?>">Lastname</a>
         </div>
         <?php endif;?>
 

@@ -1,16 +1,17 @@
 <div class="container">
 <form action="index.php" method="POST">
+  <input type="hidden" name="save">
     <div class="form-group">
         <label for="firstname">Firstname</label>
-        <input type="text" class="form-control" id="firstname" name="firstname">
+        <input required type="text" class="form-control" id="firstname" name="firstname">
   </div>
   <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" name="name">
+        <input required type="text" class="form-control" id="name" name="name">
   </div>
   <div class="form-group">
         <label for="lastname">Lastname</label>
-        <input type="text" class="form-control" id="lastname" name="lastname">
+        <input required type="text" class="form-control" id="lastname" name="lastname">
   </div>
   <div class="form-group">
     <label for="gender">Gender</label>
@@ -21,19 +22,19 @@
   </div>
   <div class="form-group">
         <label for="date">Date</label>
-        <input type="date" class="form-control" id="date" name="date">
+        <input required type="date" class="form-control" id="date" name="date">
   </div>
   <div class="form-group">
         <label for="phone">Phone</label>
-        <input type="tel" class="form-control" id="phone" name="phone">
+        <input required type="tel" class="form-control" id="phone" name="phone">
   </div>
   <div class="form-group">
     <label for="email">Email address</label>
-    <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email">
+    <input required type="email" class="form-control" id="email" placeholder="name@example.com" name="email">
   </div>
   <div class="form-group">
     <label for="address">Address</label>
-    <textarea class="form-control" id="address" rows="3" name="address"></textarea>
+    <textarea required class="form-control" id="address" rows="3" name="address"></textarea>
   </div>
   <div class="form-group">
     <label for="comment">Comment</label>
