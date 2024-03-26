@@ -10,7 +10,7 @@
     if (isset($_GET['o'])){
         $sql = "SELECT * FROM `friends` ORDER BY ".$_GET['o'];
     }else $sql = 'SELECT * FROM `friends`'.'LIMIT '.$page.','.$count_read;
-    print_r($sql);
+    // print_r($sql);
     $res = mysqli_query($connect, $sql);
     
     if (mysqli_errno($connect)) print_r(mysqli_error($connect));
@@ -51,7 +51,7 @@
 <nav aria-label="Page navigation example">
   <ul class="pagination">
     <?php for($i=0; $i<$pages; $i++):?>
-        <li class="page-item"><a class="page-link" href="<?=$_SERVER['REQUEST_URI'];?>&page=<?=$i;?>"><?=$i+1;?></a></li>
+        <li class="page-item"><a class="page-link" href="<?=$_SERVER['REQUEST_URI'];?>?page=<?=$i;?>"><?=$i+1;?></a></li>
     <?php endfor;?>
   </ul>
 </nav>
