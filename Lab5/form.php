@@ -1,38 +1,51 @@
-<form name="form_add" method="post">
-    <div class="column">
-        <div class="add">
-            <label>Фамилия</label> <input type="text" name="surname" placeholder="Фамилия" value="''">
-        </div>
-        <div class="add">
-            <label>Имя</label> <input type="text" name="name" placeholder="Имя" value="<?=$row['name'];?>">
-        </div>
-        <div class="add">
-            <label>Отчество</label> <input type="text" name="lastname" placeholder="Отчество" value="<?=$row['lastname'];?>">
-        </div>
-        <div class="add">
-            <label>Пол</label> 
-            <select name="gender">
-                <option value='<?=$row['gender'];?>'><?=$row['gender'];?></option>
-                <option value="мужской">мужской</option>
-                <option value="женский">женский</option>
-            </select>
-        </div>
-        <div class="add">
-            <label>Дата рождения</label> <input type="date" name="date" value="<?=$row['date'];?>">
-        </div>
-        <div class="add">
-            <label>Телефон</label> <input type="text" name="phone" placeholder="Телефон" value="<?=$row['phone'];?>">
-        </div>
-        <div class="add">
-            <label>Адрес</label> <input type="text" name="location" placeholder="Адрес" value="<?=$row['location'];?>"> 
-        </div>
-        <div class="add">
-            <label>Email</label> <input type="email" name="email" placeholder="Email" value="<?=$row['email'];?>">
-        </div>
-        <div class="add">
-            <label>Комментарий</label> <textarea name="comment" placeholder="Краткий комментарий"><?=$row['comment'];?></textarea>
-        </div>
-    
-            <button type="submit" value="<?=$button;?>" name="button" class="form-btn"><?=$button;?></button>
-    </div>
-    </form>
+<?php
+    $sql = 'SELECT * FROM `friends` WHERE `id`='.$_GET['id_update'].'';
+    $res = mysqli_query($connect, $sql);
+    if (mysqli_errno($connect)) print_r(mysqli_error($connect));
+    $row = mysqli_fetch_assoc($res);
+?>
+
+<form class="mt-3" action="index.php" method="POST">
+    <input type="hidden" name="update">
+    <input type="hidden" name="id" value="<?=$_GET['id_update'];?>">
+  <div class="form-group">
+        <label for="firstname">Firstname</label>
+        <input required type="text" class="form-control" id="firstname" name="firstname" value="<?=$row['firstname'];?>">
+  </div>
+  <div class="form-group">
+        <label for="name">Name</label>
+        <input required type="text" class="form-control" id="name" name="name" value="<?=$row['name'];?>">
+  </div>
+  <div class="form-group">
+        <label for="lastname">Lastname</label>
+        <input required type="text" class="form-control" id="lastname" name="lastname" value="<?=$row['lastname'];?>">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Gender</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="gender" value="<?=$row['gender'];?>">
+      <option>female</option>
+      <option>male</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="date">Date</label>
+    <input required type="date" class="form-control" id="date" name="date" value="<?=$row['date'];?>">
+  </div>
+  <div class="form-group">
+    <label for="phone">Phone</label>
+    <input type="tel" class="form-control" id="phone" name="phone" value="<?=$row['phone'];?>">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Email address</label>
+    <input required type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="email" value="<?=$row['email'];?>">
+  </div>
+  <div class="form-group">
+    <label for="adres">Address</label>
+    <textarea required class="form-control" id="adres" rows="3" name="adres"><?=$row['adres'];?></textarea>
+  </div>
+  <div class="form-group">
+    <label for="comment">Comment</label>
+    <textarea class="form-control" id="comment" rows="3" name="comment"><?=$row['comment'];?></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary mb-3">Update</button>
+</form>

@@ -33,9 +33,9 @@
     <main>
       <?php if ($_GET['p']=='view'):?>
         <div class="btn-group" role="group" aria-label="Basic example">
-          <a class="btn btn-secondary" href="?p=view&o=id">Id</a>
-          <a class="btn btn-secondary" href="?p=view&o=date">Date</a>
-          <a class="btn btn-secondary" href="?p=view&o=lastname">Lastname</a>
+          <a class="btn btn-secondary <?php if ($_GET['o'] == 'id') echo 'active';?>" href="?&o=id">Id</a>
+          <a class="btn btn-secondary <?php if ($_GET['o'] == 'date') echo 'active';?>" href="?&o=date">Date</a>
+          <a class="btn btn-secondary <?php if ($_GET['o'] == 'lastname') echo 'active';?>" href="?&o=lastname">Lastname</a>
      </div>
       <?php endif;?>
 

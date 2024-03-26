@@ -1,10 +1,25 @@
-<?php
-    if (isset($_GET['o'])){
-        $sql = 'SELECT * FROM `friends` ORDER BY `'.$_GET['o'].'`';
-    }else $sql = 'SELECT * FROM `friends`';
+<?php 
+
+    $rows_view = 5;
+
+    $sql = 'SELECT COUNT(*) FROM `friends`';
+    $res = mysqli_query($connect, $sql);
+    $rows = mysqli_fetch_row($res)[0];
+    $pages = ceil($rows/$rows_view);
+
+    $sql = 'SELECT * FROM `friends` ORDER BY `'.$_GET['o'].'` LIMIT '.$_GET['page']*$rows_view.','.$rows_view.'';
     $res = mysqli_query($connect, $sql);
     if (mysqli_errno($connect)) print_r(mysqli_error($connect));
+
 ?>
+<?php if(isset($i) && $i==true):?>
+<div class="alert alert-success" role="alert">
+  <h4 class="alert-heading"></h4>
+  <p>Успешно</p>
+  <p class="mb-0"></p>
+</div>
+<?php endif;?>
+
 <table class="table">
 <thead>
   <tr>
@@ -37,3 +52,11 @@
     <?php endwhile;?>
 </tbody>
 </table>
+
+<nav aria-label="...">
+  <ul class="pagination pagination-sm">
+    <?php for ($i = 0; $i < $pages; $i++):?>
+      <li class="page-item <?php if ($_GET['page'] == $i) echo 'active';?>"><a class="page-link" href="<?=$_SERVER['SCRIPT_NAME'];?>?page=<?=$i;?>&o=<?=$_GET['o'];?>"><?=$i+1?></a></li>
+    <?php endfor;?>
+  </ul>
+</nav>
